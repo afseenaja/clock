@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+
+</head>
+<body>
+    <div id="clock">01:20:30 AM</div>
+    <div id="analog">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+    <button type="submit" onclick="clock2()" id="but">ANALOG CLOCK</button>
+    <!-- <button type="submit" onclick="" id="but2">ANALOG CLOCK</button> -->
+</body>
+<script>
+   setInterval(() => {
+    d = new Date(); //object of date()
+    hr = d.getHours();
+    min = d.getMinutes();
+    sec = d.getSeconds();
+    hr_rotation = 30 * hr + min / 2; //converting current time
+    min_rotation = 6 * min;
+    sec_rotation = 6 * sec;
+    
+    hour.style.transform = `rotate(${hr_rotation}deg)`;
+    minute.style.transform = `rotate(${min_rotation}deg)`;
+    second.style.transform = `rotate(${sec_rotation}deg)`;
+    }, 1000);
+</script>
+</html>
